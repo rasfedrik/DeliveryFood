@@ -78,19 +78,20 @@ class DFMenuCollectionViewCell: UICollectionViewCell {
         
         NSLayoutConstraint.activate([
             
-            imageView.widthAnchor.constraint(equalToConstant: 170),
-            imageView.topAnchor.constraint(equalTo: topAnchor, constant: 15),
+            imageView.widthAnchor.constraint(equalToConstant: 150),
+            imageView.heightAnchor.constraint(equalToConstant: 150),
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            imageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
+            imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             
             stackView.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 10),
-            stackView.topAnchor.constraint(equalTo: topAnchor),
+            stackView.topAnchor.constraint(equalTo: imageView.topAnchor),
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            
-            addToCartButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 10),
+            stackView.bottomAnchor.constraint(equalTo: addToCartButton.topAnchor, constant: -10),
+
+            addToCartButton.heightAnchor.constraint(equalToConstant: 30),
+            addToCartButton.widthAnchor.constraint(equalToConstant: 100),
             addToCartButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            addToCartButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
-            addToCartButton.widthAnchor.constraint(equalToConstant: 100)
+            addToCartButton.bottomAnchor.constraint(equalTo: imageView.bottomAnchor)
 
         ])
     }

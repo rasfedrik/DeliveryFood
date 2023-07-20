@@ -27,7 +27,7 @@ class DFMenuCollectionView: UICollectionView {
         
         translatesAutoresizingMaskIntoConstraints = false
         showsVerticalScrollIndicator = false
-        layout.sectionInset = .init(top: 20, left: 0, bottom: 0, right: 0)
+        layout.sectionInset = .init(top: 10, left: 0, bottom: 0, right: 0)
         
         layout.minimumLineSpacing = 1
         backgroundColor = .clear
