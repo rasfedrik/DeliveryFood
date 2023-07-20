@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		D82D666C2A45A7FB00F2B4AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82D666B2A45A7FB00F2B4AD /* AppDelegate.swift */; };
 		D82D666E2A45A7FB00F2B4AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82D666D2A45A7FB00F2B4AD /* SceneDelegate.swift */; };
-		D82D66702A45A7FB00F2B4AD /* DFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82D666F2A45A7FB00F2B4AD /* DFViewController.swift */; };
 		D82D66752A45A7FB00F2B4AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D82D66742A45A7FB00F2B4AD /* Assets.xcassets */; };
 		D82D66782A45A7FB00F2B4AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82D66762A45A7FB00F2B4AD /* LaunchScreen.storyboard */; };
 		D82D66812A45A8C700F2B4AD /* DFModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82D66802A45A8C700F2B4AD /* DFModel.swift */; };
@@ -25,20 +24,16 @@
 		D82D669F2A46049E00F2B4AD /* DFMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82D669E2A46049E00F2B4AD /* DFMenuCollectionViewCell.swift */; };
 		D82D66A12A4606D400F2B4AD /* DFHeaderSpecialOffersReusebleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82D66A02A4606D400F2B4AD /* DFHeaderSpecialOffersReusebleView.swift */; };
 		D88639C82A4AAB0F00B771B9 /* DFHeaderCategoriesReusebleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88639C72A4AAB0F00B771B9 /* DFHeaderCategoriesReusebleView.swift */; };
-		D88639CF2A4AC0DA00B771B9 /* DFTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88639CE2A4AC0DA00B771B9 /* DFTableView.swift */; };
-		D88639D12A4AC23F00B771B9 /* DFTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88639D02A4AC23F00B771B9 /* DFTableViewCell.swift */; };
 		D88639D92A53FEA200B771B9 /* DFTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88639D82A53FEA200B771B9 /* DFTabBarController.swift */; };
 		D88639DB2A53FEFD00B771B9 /* DFContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88639DA2A53FEFD00B771B9 /* DFContactsViewController.swift */; };
 		D88639DD2A53FF1E00B771B9 /* DFProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88639DC2A53FF1E00B771B9 /* DFProfileViewController.swift */; };
 		D88639DF2A53FF3100B771B9 /* DFCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88639DE2A53FF3100B771B9 /* DFCartViewController.swift */; };
-		D88639E12A568B7F00B771B9 /* DFNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88639E02A568B7F00B771B9 /* DFNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D82D66682A45A7FB00F2B4AD /* DeliveryFood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliveryFood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D82D666B2A45A7FB00F2B4AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D82D666D2A45A7FB00F2B4AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D82D666F2A45A7FB00F2B4AD /* DFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFViewController.swift; sourceTree = "<group>"; };
 		D82D66742A45A7FB00F2B4AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D82D66772A45A7FB00F2B4AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D82D66792A45A7FB00F2B4AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,13 +50,10 @@
 		D82D669E2A46049E00F2B4AD /* DFMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFMenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		D82D66A02A4606D400F2B4AD /* DFHeaderSpecialOffersReusebleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFHeaderSpecialOffersReusebleView.swift; sourceTree = "<group>"; };
 		D88639C72A4AAB0F00B771B9 /* DFHeaderCategoriesReusebleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFHeaderCategoriesReusebleView.swift; sourceTree = "<group>"; };
-		D88639CE2A4AC0DA00B771B9 /* DFTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFTableView.swift; sourceTree = "<group>"; };
-		D88639D02A4AC23F00B771B9 /* DFTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFTableViewCell.swift; sourceTree = "<group>"; };
 		D88639D82A53FEA200B771B9 /* DFTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFTabBarController.swift; sourceTree = "<group>"; };
 		D88639DA2A53FEFD00B771B9 /* DFContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFContactsViewController.swift; sourceTree = "<group>"; };
 		D88639DC2A53FF1E00B771B9 /* DFProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFProfileViewController.swift; sourceTree = "<group>"; };
 		D88639DE2A53FF3100B771B9 /* DFCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFCartViewController.swift; sourceTree = "<group>"; };
-		D88639E02A568B7F00B771B9 /* DFNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +114,6 @@
 				D82D669C2A46045F00F2B4AD /* DFMenuCollectionView.swift */,
 				D82D66962A45C6AB00F2B4AD /* DFCategoriesCollectionView.swift */,
 				D82D66942A45C5F100F2B4AD /* DFSpecialOffersCollectionView.swift */,
-				D88639CE2A4AC0DA00B771B9 /* DFTableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -153,7 +144,6 @@
 				D82D669E2A46049E00F2B4AD /* DFMenuCollectionViewCell.swift */,
 				D82D668A2A45ACB800F2B4AD /* DFSpecialOffersCollectionViewCell.swift */,
 				D82D66902A45AE7F00F2B4AD /* DFCategoriesCollectionViewCell.swift */,
-				D88639D02A4AC23F00B771B9 /* DFTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -161,23 +151,13 @@
 		D88639CC2A4AABCA00B771B9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D88639E02A568B7F00B771B9 /* DFNavigationController.swift */,
 				D88639D82A53FEA200B771B9 /* DFTabBarController.swift */,
 				D82D669A2A4603BD00F2B4AD /* DFMenuViewController.swift */,
 				D88639DA2A53FEFD00B771B9 /* DFContactsViewController.swift */,
 				D88639DC2A53FF1E00B771B9 /* DFProfileViewController.swift */,
 				D88639DE2A53FF3100B771B9 /* DFCartViewController.swift */,
-				D88639CD2A4AAC8900B771B9 /* Temp */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		D88639CD2A4AAC8900B771B9 /* Temp */ = {
-			isa = PBXGroup;
-			children = (
-				D82D666F2A45A7FB00F2B4AD /* DFViewController.swift */,
-			);
-			path = Temp;
 			sourceTree = "<group>";
 		};
 		D88639D62A4D475200B771B9 /* ReusebleViews */ = {
@@ -266,7 +246,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D82D66702A45A7FB00F2B4AD /* DFViewController.swift in Sources */,
 				D82D66952A45C5F100F2B4AD /* DFSpecialOffersCollectionView.swift in Sources */,
 				D82D666C2A45A7FB00F2B4AD /* AppDelegate.swift in Sources */,
 				D82D669F2A46049E00F2B4AD /* DFMenuCollectionViewCell.swift in Sources */,
@@ -275,15 +254,12 @@
 				D82D66912A45AE7F00F2B4AD /* DFCategoriesCollectionViewCell.swift in Sources */,
 				D82D669B2A4603BD00F2B4AD /* DFMenuViewController.swift in Sources */,
 				D88639C82A4AAB0F00B771B9 /* DFHeaderCategoriesReusebleView.swift in Sources */,
-				D88639E12A568B7F00B771B9 /* DFNavigationController.swift in Sources */,
 				D88639DD2A53FF1E00B771B9 /* DFProfileViewController.swift in Sources */,
 				D82D66892A45AAFB00F2B4AD /* DFTableViewCellModel.swift in Sources */,
 				D82D66812A45A8C700F2B4AD /* DFModel.swift in Sources */,
 				D82D668F2A45ADAF00F2B4AD /* DFSpecialOffersCollectionViewCellModel.swift in Sources */,
-				D88639CF2A4AC0DA00B771B9 /* DFTableView.swift in Sources */,
 				D82D668B2A45ACB800F2B4AD /* DFSpecialOffersCollectionViewCell.swift in Sources */,
 				D82D669D2A46045F00F2B4AD /* DFMenuCollectionView.swift in Sources */,
-				D88639D12A4AC23F00B771B9 /* DFTableViewCell.swift in Sources */,
 				D82D66932A45AEA700F2B4AD /* DFCategoriesCollectionViewCellModel.swift in Sources */,
 				D88639DF2A53FF3100B771B9 /* DFCartViewController.swift in Sources */,
 				D88639DB2A53FEFD00B771B9 /* DFContactsViewController.swift in Sources */,
