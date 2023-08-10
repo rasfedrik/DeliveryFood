@@ -12,9 +12,11 @@ final class DFMenuViewController: UIViewController {
     private var menuCollectionView = DFMenuCollectionView()
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         view.backgroundColor = .systemGray6
         title = "Меню"
+        
         addCollectionView()
         navigationController?.isNavigationBarHidden = true
     }

@@ -11,13 +11,14 @@ class DFMenuCollectionView: UICollectionView {
     
     static let identifier = "DFMenuCollectionView"
     private let cell = DFMenuCollectionViewCell()
+    private let categoriesCollectionView = DFCategoriesCollectionView()
     
     private enum HeadersHeight: CGFloat {
         case specialOffers = 130.0
         case categories = 60.0
     }
     
-    fileprivate let padding: CGFloat = 20
+    fileprivate let padding: CGFloat = 10
     fileprivate let layout = UICollectionViewFlowLayout()
     
     init() {
@@ -27,13 +28,12 @@ class DFMenuCollectionView: UICollectionView {
         
         translatesAutoresizingMaskIntoConstraints = false
         showsVerticalScrollIndicator = false
-        layout.sectionInset = .init(top: 10, left: 0, bottom: 0, right: 0)
+        layout.sectionInset = .init(top: 20, left: 0, bottom: 0, right: 0)
         
         layout.minimumLineSpacing = 1
         backgroundColor = .clear
         delegate = self
         dataSource = self
-
     }
     
     required init?(coder: NSCoder) {
@@ -81,7 +81,7 @@ extension DFMenuCollectionView: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: frame.size.width, height: 200)
+        return CGSize(width: frame.size.width, height: 180)
         
     }
     

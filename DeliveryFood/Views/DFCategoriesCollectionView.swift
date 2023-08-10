@@ -8,13 +8,37 @@
 import UIKit
 
 final class DFCategoriesCollectionView: UICollectionView {
-
+    
     private let cell = DFCategoriesCollectionViewCell()
+    
+    public func fetchCategories() {
+        
+        DFService.shared.execute(
+            .categoriesRequest,
+            expecting: Categories.self) { [weak self] result in
+                switch result {
+                case .success(let success):
+                    guard let self else { return }
+                    
+                    DispatchQueue.main.async {
+                        for i in success.meals {
+                            self.categories.append(i.strCategory)
+                        }
+                        self.reloadData()
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        
+    }
+    
+    private var categories: [String] = []
     
     private let layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-//        layout.minimumLineSpacing = 10
+        //        layout.minimumLineSpacing = 10
         return layout
     }()
     
@@ -37,6 +61,7 @@ final class DFCategoriesCollectionView: UICollectionView {
         
         delegate = self
         dataSource = self
+        fetchCategories()
     }
     
     required init?(coder: NSCoder) {
@@ -48,12 +73,14 @@ final class DFCategoriesCollectionView: UICollectionView {
 extension DFCategoriesCollectionView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return categories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DFCategoriesCollectionViewCell.identifier, for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DFCategoriesCollectionViewCell.identifier, for: indexPath) as? DFCategoriesCollectionViewCell else { fatalError("Unsupported cell") }
+        
+        cell.configure(with: categories[indexPath.row])
         
         return cell
     }
@@ -63,6 +90,6 @@ extension DFCategoriesCollectionView: UICollectionViewDelegate, UICollectionView
         
         return CGSize(width: 100, height: frame.height - 20)
     }
-
-
+    
+    
 }

@@ -10,7 +10,7 @@ import UIKit
 final class DFSpecialOffersCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "DFSpecialOffersCollectionViewCell"
-    private let model = DFSpecialOffersCollectionViewCellModel()
+//    private let model = DFSpecialOffersCollectionViewCellModel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -10,16 +10,24 @@ import UIKit
 final class DFCategoriesCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "DFCategoriesCollectionViewCell"
-    private let model = DFCategoriesCollectionViewCellModel()
+//    private let model = DFCategoriesCollectionViewCellModel()
+
     
-    private lazy var categoriesButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Напитки", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        button.setTitleColor(.red, for: .normal)
-        button.backgroundColor = .clear
-        return button
+//    private lazy var categoriesButton: UIButton = {
+//        let button = UIButton()
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        button.setTitle("Напитки", for: .normal)
+//        button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+//        button.setTitleColor(.red, for: .normal)
+//        button.backgroundColor = .clear
+//        return button
+//    }()
+    
+    private lazy var categoriesLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Hagbnrb"
+        return label
     }()
     
     override init(frame: CGRect) {
@@ -29,6 +37,7 @@ final class DFCategoriesCollectionViewCell: UICollectionViewCell {
         layer.borderWidth = 1
         layer.borderColor = UIColor.red.cgColor
         layer.cornerRadius = 20
+
         setTextConstraints()
     }
     
@@ -36,14 +45,20 @@ final class DFCategoriesCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        categoriesLabel.text = nil
+    }
+    
+    public func configure(with viewModel: String) {
+        categoriesLabel.text = viewModel
+    }
+    
     private func setTextConstraints() {
-        addSubview(categoriesButton)
-        
+        addSubview(categoriesLabel)
         NSLayoutConstraint.activate([
-            categoriesButton.topAnchor.constraint(equalTo: topAnchor),
-            categoriesButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            categoriesButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            categoriesButton.bottomAnchor.constraint(equalTo: bottomAnchor)
+            categoriesLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            categoriesLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
     
