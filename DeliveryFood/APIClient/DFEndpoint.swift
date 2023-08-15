@@ -12,6 +12,5 @@ import Foundation
     case mealDetails = "lookup.php?i=52772"
     case listCategories = "list.php?c=list"
     case filterCategories = "filter.php"
-    
-    
+
 }

@@ -26,7 +26,7 @@ final class DFCategoriesCollectionViewCell: UICollectionViewCell {
     private lazy var categoriesLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Hagbnrb"
+        label.font = UIFont.systemFont(ofSize: 14)
         return label
     }()
     
@@ -50,8 +50,8 @@ final class DFCategoriesCollectionViewCell: UICollectionViewCell {
         categoriesLabel.text = nil
     }
     
-    public func configure(with viewModel: String) {
-        categoriesLabel.text = viewModel
+    public func configure(with viewModel: DFCategoriesCollectionViewCellViewModel) {
+        categoriesLabel.text = viewModel.strCategory
     }
     
     private func setTextConstraints() {

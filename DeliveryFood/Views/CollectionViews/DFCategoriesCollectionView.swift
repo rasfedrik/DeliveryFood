@@ -10,37 +10,49 @@ import UIKit
 final class DFCategoriesCollectionView: UICollectionView {
     
     private let cell = DFCategoriesCollectionViewCell()
-    
-    public func fetchCategories() {
-        
-        DFService.shared.execute(
-            .categoriesRequest,
-            expecting: Categories.self) { [weak self] result in
-                switch result {
-                case .success(let success):
-                    guard let self else { return }
-                    
-                    DispatchQueue.main.async {
-                        for i in success.meals {
-                            self.categories.append(i.strCategory)
-                        }
-                        self.reloadData()
-                    }
-                case .failure(let error):
-                    print(error)
-                }
-            }
-        
-    }
-    
-    private var categories: [String] = []
-    
+  
     private let layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         //        layout.minimumLineSpacing = 10
         return layout
     }()
+    
+
+    private var cellViewModel: [DFCategoriesCollectionViewCellViewModel] = []
+    
+    private var categories: [DFMeal] = [] {
+        didSet {
+            for category in categories {
+                let viewModel = DFCategoriesCollectionViewCellViewModel(
+                    strCategory: category.strCategory
+                )
+                if !cellViewModel.contains(viewModel) {
+                    cellViewModel.append(viewModel)
+                }
+            }
+        }
+    }
+    
+    public func fetchCategories() {
+        DFService.shared.execute(
+            .categoriesRequest,
+            expecting: DFCategories.self) { [weak self] result in
+                switch result {
+                case .success(let success):
+                    guard let self else { return }
+                    
+                    DispatchQueue.main.async {
+                        for meal in success.meals {
+                            self.categories.append(meal)
+                            self.reloadData()
+                        }
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }
+    }
     
     init() {
         super.init(frame: .zero, collectionViewLayout: layout)
@@ -80,16 +92,18 @@ extension DFCategoriesCollectionView: UICollectionViewDelegate, UICollectionView
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DFCategoriesCollectionViewCell.identifier, for: indexPath) as? DFCategoriesCollectionViewCell else { fatalError("Unsupported cell") }
         
-        cell.configure(with: categories[indexPath.row])
+        cell.configure(with: cellViewModel[indexPath.row])
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        
         return CGSize(width: 100, height: frame.height - 20)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(cellViewModel[indexPath.row].strCategory)
+    }
     
 }

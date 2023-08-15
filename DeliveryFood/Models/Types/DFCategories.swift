@@ -7,13 +7,13 @@
 
 import Foundation
 
-// MARK: - Categories
-struct Categories: Codable {
-    let meals: [Meal]
+// MARK: - DFCategories
+struct DFCategories: Codable {
+    let meals: [DFMeal]
+}
 
-    struct Meal: Codable {
-        let strCategory: String
-    }
+struct DFMeal: Codable {
+    let strCategory: String
 }
 
 

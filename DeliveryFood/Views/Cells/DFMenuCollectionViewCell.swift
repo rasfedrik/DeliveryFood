@@ -11,6 +11,7 @@ class DFMenuCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "DFMenuCollectionViewCell"
     
+    
     private lazy var imageView: UIImageView = {
         let image = UIImageView(image: UIImage(named: "arabskaja-shaurma"))
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -66,7 +67,34 @@ class DFMenuCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageView.image = nil
+        textLabel.text = nil
+        descriptionDishLabel.text = nil
+        addToCartButton.setTitle(nil, for: .normal)
+    }
+    
+    public func configure(with viewModel: DFMenuCollectionViewCellViewModel) {
+        textLabel.text = viewModel.textLabel
+        descriptionDishLabel.text = viewModel.descriptionDishLabel
+        addToCartButton.setTitle(viewModel.nameCartButton, for: .normal)
+        
+        viewModel.fetchImage { [weak self] result in
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    let image = UIImage(data: data)
+                    self?.imageView.image = image
+                }
+            case .failure(let error):
+                print(String(describing: error))
+                break
+            }
+        }
+    }
+    
     private func setConstraints() {
         
         stackView.addArrangedSubview(textLabel)
@@ -87,12 +115,12 @@ class DFMenuCollectionViewCell: UICollectionViewCell {
             stackView.topAnchor.constraint(equalTo: imageView.topAnchor),
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             stackView.bottomAnchor.constraint(equalTo: addToCartButton.topAnchor, constant: -10),
-
+            
             addToCartButton.heightAnchor.constraint(equalToConstant: 30),
             addToCartButton.widthAnchor.constraint(equalToConstant: 100),
             addToCartButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             addToCartButton.bottomAnchor.constraint(equalTo: imageView.bottomAnchor)
-
+            
         ])
     }
     

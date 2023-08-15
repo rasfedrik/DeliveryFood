@@ -18,6 +18,51 @@ class DFMenuCollectionView: UICollectionView {
         case categories = 60.0
     }
     
+    private var descriprionMeal: [DFDescriptionMeal] = [] {
+        didSet {
+            for meal in descriprionMeal {
+                let viewModel = DFMenuCollectionViewCellViewModel(
+                    mealImageURL: URL(string: meal.strMealThumb),
+                    textLabel: meal.strMeal,
+                    descriptionDishLabel:
+                        "\(meal.strIngredient1), \(meal.strIngredient2), \(meal.strIngredient3), \(meal.strIngredient4), \(meal.strIngredient5), \(meal.strIngredient6), \(meal.strIngredient7),  \(meal.strIngredient8).",
+                    nameCartButton: "123"
+                )
+                if !cellViewModel.contains(viewModel) {
+                    cellViewModel.append(viewModel)
+                }
+            }
+        }
+    }
+    
+    
+    private var cellViewModel: [DFMenuCollectionViewCellViewModel] = []
+    
+    private func fetchMenu() {
+        DFService.shared.execute(
+            .mealDetailsRequest,
+            expecting: [String:[DFDescriptionMeal?]].self) { [weak self] result in
+                switch result {
+                case .success(let success):
+                    for (_, value) in success {
+                        for meal in value {
+                            
+                            guard let meal = meal,
+                                  let self = self
+                            else { return }
+
+                            DispatchQueue.main.async {
+                                self.descriprionMeal.append(meal)
+                                self.reloadData()
+                            }
+                        }
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }
+    }
+    
     fileprivate let padding: CGFloat = 10
     fileprivate let layout = UICollectionViewFlowLayout()
     
@@ -25,7 +70,7 @@ class DFMenuCollectionView: UICollectionView {
         super.init(frame: .zero, collectionViewLayout: layout)
         
         registerCellAndHeaders()
-        
+
         translatesAutoresizingMaskIntoConstraints = false
         showsVerticalScrollIndicator = false
         layout.sectionInset = .init(top: 20, left: 0, bottom: 0, right: 0)
@@ -34,6 +79,9 @@ class DFMenuCollectionView: UICollectionView {
         backgroundColor = .clear
         delegate = self
         dataSource = self
+        
+        fetchMenu()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -67,7 +115,7 @@ extension DFMenuCollectionView: UICollectionViewDelegate, UICollectionViewDataSo
             return 0
         }
         
-        return 20
+        return cellViewModel.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -75,6 +123,8 @@ extension DFMenuCollectionView: UICollectionViewDelegate, UICollectionViewDataSo
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DFMenuCollectionViewCell.identifier, for: indexPath)
                 as? DFMenuCollectionViewCell
         else { return UICollectionViewCell() }
+        
+        cell.configure(with: cellViewModel[indexPath.row])
         
         return cell
     }
